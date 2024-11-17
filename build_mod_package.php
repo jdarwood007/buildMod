@@ -111,7 +111,7 @@ Usage: /path/to/php ' . realpath(__FILE__) . ' -- [OPTION]...
 		if (empty($args['src']) && empty($args['dst']) && file_exists(realpath($_SERVER['PWD'] . '/' . $_SERVER['argv'][1])))
 		{
 			$args['src'] = realpath($_SERVER['PWD'] . '/' . $_SERVER['argv'][1]);
-			$args['dst'] = realpath($_SERVER['HOME'] . '/Downloads');
+			$args['dst'] = realpath($_SERVER['PWD'] . '/');
 		}
 		
 		if (empty($args['src']))
