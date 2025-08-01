@@ -1,6 +1,6 @@
 DST_DIR=$1
 
-if [ ! -d "$DST_DIR" ]; then echo "$DST_DIR missing."; fi
+if [ ! -d "$DST_DIR" ]; then echo "$DST_DIR missing."; exit 1; fi
 
 # Get the version name.
 NAME=$(sed -nE 's/<name>([^<]+)<\/name>/\1/p' package-info.xml | awk '{$1=$1};1')
@@ -11,15 +11,8 @@ VERSION=$(sed -nE 's/<version>([^<]+)<\/version>/\1/p' package-info.xml | awk '{
 VERSION=`echo $VERSION | sed -e "s/ /-/g"`
 VERSION=`echo $VERSION | sed -e "s/Rc/RC/g"`
 
-if [ -z "${VERSION}" ]; then
-  echo "Version is missing"
-  exit 1;
-fi
-
-if [ -z "${NAME}" ]; then
-  echo "Name is missing"
-  exit 1;
-fi
+if [ -z "${VERSION}" ]; then echo "Version is missing"; exit 1; fi
+if [ -z "${NAME}" ]; then echo "Name is missing"; exit 1; fi
 
 BASE_FILE="${NAME}_${VERSION}"
 
