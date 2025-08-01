@@ -60,7 +60,7 @@ $package_file_base = $name . '_' . $version;
 
 if (file_exists($args['dst'] . '/' . $package_file_base . '.tgz'))
 	unlink($args['dst'] . '/' . $package_file_base . '.tgz');
-shell_exec($tar_path . ' --no-xattrs --no-acls' . (PHP_OS_FAMILY === 'Darwin' ? ' --no-mac-metadata' : '') .' --no-fflags --exclude=\'.git\' --exclude=\'screenshots\' --exclude=\'vendor\' --exclude=\'.*\' --exclude=\'composer.*\' -czf ' . $args['dst'] . '/' . $package_file_base . '.tgz *');
+shell_exec($tar_path . ' --no-xattrs --no-acls' . (PHP_OS_FAMILY === 'Darwin' ? ' --no-mac-metadata --no-fflags' : '') .' --exclude=\'.git\' --exclude=\'screenshots\' --exclude=\'vendor\' --exclude=\'.*\' --exclude=\'composer.*\' -czf ' . $args['dst'] . '/' . $package_file_base . '.tgz *');
 
 // Zip it, zip it good.
 if (file_exists($args['dst'] . '/' . $package_file_base . '.zip'))
