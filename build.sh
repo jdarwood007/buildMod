@@ -18,9 +18,9 @@ BASE_FILE="${NAME}_${VERSION}"
 
 # Tar with gz
 if [ "$(uname)" == "Darwin" ]; then
-	tar --no-xattrs --no-acls --no-mac-metadata --no-fflags --exclude='.git' --exclude='screenshots' --exclude='vendor' --exclude='.*' --exclude=\'composer.*\' -czf $DST_DIR/$BASE_FILE.tgz *
+	tar --no-xattrs --no-acls --no-mac-metadata --no-fflags --exclude='.git' --exclude='screenshots' --exclude='vendor' --exclude='.*' --exclude='composer.*' -czf $DST_DIR/$BASE_FILE.tgz *
 else
-	tar --no-xattrs --no-acls--exclude='.git' --exclude='screenshots' --exclude='vendor' --exclude='.*' --exclude=\'composer.*\' -czf $DST_DIR/$BASE_FILE.tgz *
+	tar --no-xattrs --no-acls--exclude='.git' --exclude='screenshots' --exclude='vendor' --exclude='.*' --exclude='composer.*' -czf $DST_DIR/$BASE_FILE.tgz *
 fi
 
 # Zip
